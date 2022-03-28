@@ -166,13 +166,15 @@ def get_articles_detail(link):
 
 
 if __name__ == '__main__':
-    current_page = get_web_page(PTT_URL + '/bbs/Food/index.html')
+    # 這裡改看板，用看板的首頁
+    # '/bbs/Food/index.html'
+    current_page = get_web_page(PTT_URL + '/bbs/BeautySalon/index.html')
     articles = []
     detail_articles = []
     if current_page:
         page_count = 0
         # 抓幾頁
-        page_max = 1
+        page_max = 10
         current_articles, prev_url = get_articles(current_page)
 
         while current_articles and (page_count < page_max):
@@ -200,3 +202,5 @@ if __name__ == '__main__':
             detail_articles += current_detail_articles
         with open('detail_articles.json', 'w', encoding='utf-8') as f:
             json.dump(detail_articles, f, indent=2, sort_keys=True, ensure_ascii=False)
+    print('DONE!')
+
