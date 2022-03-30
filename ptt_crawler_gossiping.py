@@ -201,8 +201,8 @@ if __name__ == '__main__':
     if articles:
         for a in articles:
             link = PTT_URL + a['href']
-            #print(link)
+            print(link)
             current_detail_articles = get_articles_detail(link)
             detail_articles += current_detail_articles
         with open('detail_articles.json', 'w', encoding='utf-8') as f:
-            json.dump(detail_articles, f, indent=2, sort_keys=True, ensure_ascii=False)
+            json.dump(detail_articles[:100], f, indent=2, sort_keys=True, ensure_ascii=False)
