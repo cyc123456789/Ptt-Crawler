@@ -182,7 +182,7 @@ if __name__ == '__main__':
     if current_page:
         page_count = 0
         # 抓幾頁
-        page_max = 2000
+        page_max = 5000
         current_articles, prev_url = get_articles(current_page)
         #while current_articles and (page_count < page_max):
 
